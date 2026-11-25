@@ -1,0 +1,23 @@
+version: "2"
+linters:
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - ineffassign
+    - unused
+    - gosec          # security-focused checks
+    - bodyclose      # unclosed HTTP response bodies
+    - noctx          # HTTP requests without context
+    - errorlint      # correct error wrapping/comparison
+    - misspell
+  settings:
+    gosec:
+      excludes:
+        - G104       # duplicate of errcheck
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters: [gosec, noctx, bodyclose]
+formatters:
+  enable: [gofmt]
