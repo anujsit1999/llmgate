@@ -1,0 +1,8 @@
+# Local config and secrets
+config.yaml
+.env
+*.pem
+
+# Build output
+/bin/
+cover.out
